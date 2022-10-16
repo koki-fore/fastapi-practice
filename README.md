@@ -1,5 +1,6 @@
 # fastAPI practice
 fastAPIをMySQLと接続してDockerで構築
+
 ## Set up
 Dockerでbuild
 ```bash
@@ -10,3 +11,10 @@ Dockerを起動（-dでバックで起動）
 Docker-compose up -d
 ```
 
+# Swagger UI
+localhost:8080/docs
+
+# MySQLとの接続を確認
+```bash
+docker-compose exec db mysql fastapi-practice-db
+```
