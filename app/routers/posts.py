@@ -1,11 +1,18 @@
+import typing
+
+
+from typing import List
+
 from fastapi import APIRouter
+
+import app.schemas.posts as post_schema
 
 router = APIRouter()
 
 
-@router.get("/posts")
+@router.get("/posts", response_model=List[post_schema.Post])
 async def list_posts():
-    pass
+    return [post_schema.Post(id=1, text='水を買ったよ')]
 
 @router.post("/posts")
 async def create_post():
