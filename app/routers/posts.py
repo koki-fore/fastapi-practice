@@ -11,9 +11,10 @@ router = APIRouter()
 async def list_posts():
     return [post_schema.Post(id=1, text='水を買ったよ')]  # type: ignore
 
-@router.post("/posts")
-async def create_post():
-    pass
+@router.post("/posts", response_model=post_schema.PostCreateResponse)
+async def create_post(post_body: post_schema.PostCreate):
+    return post_schema.PostCreateResponse(**post_body.dict())
+    
 
 @router.put("/posts/{id}")
 async def update_post():
